@@ -1,155 +1,112 @@
-Service Discovery
+# Service Discovery
 
-A Service Discovery Server built using Spring Boot and Netflix Eureka Server. It provides a central registry where microservices can register themselves and discover other registered services dynamically.
+A Spring Boot microservices project demonstrating **Service Discovery** — a mechanism that allows microservices to register themselves with a central registry and discover other services dynamically without hardcoding their network locations.
 
-🚀 Overview
+## Overview
 
-In a microservices architecture, services need a reliable way to find and communicate with one another without hardcoding hostnames or port numbers.
+In a microservices architecture, services may run on different hosts or ports, and their locations can change over time. Service Discovery simplifies service-to-service communication by maintaining a registry of available service instances.
 
-This project uses Netflix Eureka Server to provide a centralized service registry for service registration and discovery.
+This project is intended to demonstrate the fundamentals of service registration and discovery using Java and Spring Boot.
 
-🛠️ Tech Stack
-Java 17
-Spring Boot 4.1.0
-Spring Cloud Netflix Eureka Server
-Apache Maven
-Lombok
-Spring Boot DevTools
-✨ Key Features
-Centralized service registry for microservices.
-Dynamic service registration and discovery.
-Reduced dependency on hardcoded service URLs.
-Integration with the Spring Cloud ecosystem.
-Maven-based build and dependency management.
-📋 Prerequisites
+## Tech Stack
 
-Make sure you have the following installed:
+- **Language:** Java
+- **Framework:** Spring Boot
+- **Build Tool:** Maven
+- **Microservices Infrastructure:** Spring Cloud
+- **Service Registry:** Netflix Eureka, if configured in this project
 
-Java Development Kit (JDK) 17
-Maven, or use the included Maven Wrapper
-Git
-📥 Getting Started
-1. Clone the repository
-bash
+## Key Concepts
+
+- Service registration and discovery
+- Centralized service registry
+- Dynamic service lookup
+- Microservices architecture
+- Spring Boot application configuration
+
+## Architecture
+
+```text
+        +----------------------+
+        |  Service Registry    |
+        |   (Eureka Server)    |
+        +----------+-----------+
+                   |
+          Registers / Discovers
+                   |
+          +--------+--------+
+          |                 |
+    +-----v------+    +-----v------+
+    |  Service A |    |  Service B |
+    +------------+    +------------+
+```
+
+*Illustrative architecture; adapt it to the services actually implemented in this repository.*
+
+## Getting Started
+
+### Prerequisites
+
+- Java Development Kit (JDK)
+- Maven or the included Maven Wrapper
+- An IDE such as IntelliJ IDEA
+
+### Clone the Repository
+
+```bash
 git clone https://github.com/vivek-codes-source/ServiceDiscovery.git
-
-2. Navigate to the project directory
-bash
 cd ServiceDiscovery
+```
 
-3. Build the project
+### Build the Project
 
 On Windows:
 
-bash
+```bash
 mvnw.cmd clean package
+```
 
+On macOS or Linux:
 
-On Linux or macOS:
-
-bash
-chmod +x mvnw
+```bash
 ./mvnw clean package
+```
 
-4. Run the application
+### Run the Application
 
 On Windows:
 
-bash
+```bash
 mvnw.cmd spring-boot:run
+```
 
+On macOS or Linux:
 
-On Linux or macOS:
-
-bash
+```bash
 ./mvnw spring-boot:run
+```
 
-⚙️ Configuration
+## Learning Outcomes
 
-Configure the Eureka server in src/main/resources/application.properties or application.yml.
+- Understanding service discovery in distributed systems
+- Exploring Spring Boot and Spring Cloud
+- Learning how microservices can locate one another dynamically
+- Understanding the role of a service registry in a microservices architecture
 
-Example configuration for a standalone Eureka server:
+## Future Enhancements
 
-properties
-spring.application.name=service-discovery
-server.port=8761
+- Integrate multiple sample microservices
+- Configure client-side service discovery
+- Integrate an API Gateway
+- Add health checks and monitoring
+- Explore load balancing across service instances
 
-eureka.client.register-with-eureka=false
-eureka.client.fetch-registry=false
+## Author
 
+**Vivek Kumar Sahu**
 
-Note: Add or verify these settings in your project before relying on this configuration. The example assumes a standalone Eureka server.
+GitHub: [vivek-codes-source](https://github.com/vivek-codes-source)
 
-🌐 Access the Eureka Dashboard
+---
 
-After starting the application, open:
-
-text
-http://localhost:8761
-
-
-The Eureka dashboard displays registered services when the server is configured and running correctly.
-
-🏗️ Architecture
-text
-        Service A
-            |
-            | Register / Discover
-            |
-            v
-    +-------------------+
-    | Eureka Server     |
-    | Service Registry  |
-    +-------------------+
-            ^
-            | Register / Discover
-            |
-        Service B
-
-Service Discovery Server: Maintains the service registry.
-Service A and Service B: Register with Eureka and discover other services when configured as Eureka clients.
-📁 Project Structure
-text
-ServiceDiscovery/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   └── resources/
-│   └── test/
-├── .mvn/
-├── mvnw
-├── mvnw.cmd
-├── pom.xml
-└── README.md
-
-🧪 Testing
-
-Run the test suite using the Maven Wrapper.
-
-Linux/macOS:
-
-bash
-./mvnw test
-
-
-Windows:
-
-bash
-mvnw.cmd test
-
-📚 Learning Objectives
-Understanding service discovery in microservices.
-Setting up a Netflix Eureka Server.
-Exploring service registration and discovery.
-Learning the fundamentals of Spring Cloud.
-🤝 Contributing
-
-Contributions, suggestions, and improvements are welcome.
-
-Fork the repository.
-Create a feature branch.
-Commit your changes.
-Open a pull request.
-📄 License
-
-No license information has been specified. Please check the repository for licensing terms before reusing or distributing this project.
+*This project is part of my journey toward building a strong foundation in Java backend development and microservices architecture.*
